@@ -1,0 +1,1186 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tes RMIB — CBT RMIB MTs Muhammadiyah 1 Samarinda.">
+  <title>Tes RMIB — CBT RMIB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <style>
+    :root {
+      --bg: #f4f7fa;
+      --surface: #fff;
+      --surface-muted: #f7f9fb;
+      --surface-teal: #eaf7f8;
+      --text: #151f28;
+      --muted: #5f7180;
+      --border: #dde5ec;
+      --primary: #067e8f;
+      --primary-hover: #056a77;
+      --primary-soft: #dcf1f3;
+      --primary-strong: #04606d;
+      --warning: #8d5a10;
+      --warning-soft: #fff5df;
+      --success: #186f45;
+      --success-soft: #e4f6ec;
+      --danger: #b42318;
+      --danger-soft: #fff0ef;
+      --shadow-sm: 0 2px 8px rgba(20, 40, 55, .06);
+      --shadow: 0 18px 44px rgba(20, 40, 55, .11);
+      --font-body: "DM Sans", Arial, sans-serif;
+      --font-display: "Manrope", Arial, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f1619;
+      --surface: #182228;
+      --surface-muted: #1c2830;
+      --surface-teal: #153338;
+      --text: #e9f0f2;
+      --muted: #9db0b8;
+      --border: #2c3a41;
+      --primary: #5cc4cd;
+      --primary-hover: #7fd6de;
+      --primary-soft: #173b40;
+      --primary-strong: #8fe0e7;
+      --warning: #f2bd62;
+      --warning-soft: #3a2f1a;
+      --success: #74d3a0;
+      --success-soft: #173628;
+      --danger: #ff9d96;
+      --danger-soft: #3b2222;
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, .25);
+      --shadow: 0 18px 44px rgba(0, 0, 0, .32);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: light;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    select:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--primary) 38%, transparent);
+      outline-offset: 2px;
+    }
+
+    .shell {
+      width: min(100% - 2rem, 54rem);
+      margin-inline: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 15;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      min-height: 4.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      flex-wrap: wrap;
+      padding-block: .65rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+    }
+
+    .mark {
+      width: 2.2rem;
+      height: 2.2rem;
+      display: grid;
+      place-items: center;
+      border-radius: .65rem;
+      color: #fff;
+      background: linear-gradient(155deg, var(--primary), var(--primary-strong));
+      flex: 0 0 auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mark svg {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+
+    .brand strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: .84rem;
+      letter-spacing: -.02em;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: .68rem;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+
+    .timer {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .42rem .72rem;
+      border-radius: .6rem;
+      border: 1px solid var(--border);
+      background: var(--surface-muted);
+      color: var(--text);
+      font-size: .8rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer svg {
+      width: 1rem;
+      height: 1rem;
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      width: 2.2rem;
+      height: 2.2rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: .6rem;
+      color: var(--muted);
+      background: var(--surface);
+      flex: 0 0 auto;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .theme-toggle svg {
+      width: 1.05rem;
+      height: 1.05rem;
+    }
+
+    .progress-track {
+      height: .45rem;
+      border-radius: 999px;
+      background: var(--border);
+      overflow: hidden;
+      margin-bottom: .4rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-strong));
+      width: 0%;
+      transition: width .3s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: .72rem;
+      padding-bottom: .65rem;
+      font-weight: 600;
+    }
+
+    main {
+      padding: 1.75rem 0 6rem;
+    }
+
+    .group-card {
+      padding: clamp(1.25rem, 3.2vw, 1.85rem);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .group-head {
+      margin-bottom: 1.1rem;
+    }
+
+    .group-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .group-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      color: var(--primary);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .group-eyebrow::before {
+      content: "";
+      width: .45rem;
+      height: .45rem;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .used-count {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .3rem .65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-muted);
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .group-head h1 {
+      margin: .55rem 0 .4rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.55rem);
+      letter-spacing: -.02em;
+    }
+
+    .group-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .85rem;
+      max-width: 44ch;
+    }
+
+    .rank-note {
+      display: flex;
+      gap: .65rem;
+      margin: 1.1rem 0;
+      padding: .75rem .85rem;
+      border-radius: .75rem;
+      border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+      background: var(--primary-soft);
+      color: var(--text);
+      font-size: .8rem;
+    }
+
+    .rank-note svg {
+      flex: 0 0 auto;
+      width: 1.05rem;
+      height: 1.05rem;
+      color: var(--primary);
+      margin-top: .1rem;
+    }
+
+    .item-list {
+      display: grid;
+      gap: .5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .item-row {
+      display: grid;
+      grid-template-columns: 3.6rem 1fr;
+      gap: .85rem;
+      align-items: center;
+      padding: .6rem .7rem .6rem .5rem;
+      border: 1px solid var(--border);
+      border-radius: .85rem;
+      background: var(--surface-muted);
+      transition: border-color .16s, background .16s, transform .16s;
+    }
+
+    .item-row:hover {
+      border-color: color-mix(in srgb, var(--primary) 42%, var(--border));
+    }
+
+    .item-row.is-filled {
+      border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+      background: color-mix(in srgb, var(--primary-soft) 55%, var(--surface-muted));
+    }
+
+    .rank-chip {
+      position: relative;
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+
+    .rank-select {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 2px solid var(--border);
+      border-radius: .75rem;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text);
+      background: var(--surface);
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rank-select:hover {
+      border-color: color-mix(in srgb, var(--primary) 55%, var(--border));
+    }
+
+    .rank-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
+      outline: none;
+    }
+
+    .item-row.is-filled .rank-select {
+      border-color: var(--primary);
+      color: var(--primary-strong);
+      background: color-mix(in srgb, var(--primary-soft) 70%, var(--surface));
+    }
+
+    .item-text {
+      font-size: .89rem;
+      color: var(--text);
+    }
+
+    .group-error {
+      display: none;
+      align-items: center;
+      gap: .55rem;
+      margin-top: .9rem;
+      padding: .72rem .85rem;
+      border-radius: .75rem;
+      background: var(--danger-soft);
+      color: var(--danger);
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .group-error svg {
+      width: 1rem;
+      height: 1rem;
+      flex: 0 0 auto;
+    }
+
+    .group-error.is-visible {
+      display: flex;
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-top: 1.4rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .nav-note {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      color: var(--muted);
+      font-size: .74rem;
+    }
+
+    .nav-note svg {
+      width: .95rem;
+      height: .95rem;
+      color: var(--primary);
+      flex: 0 0 auto;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: .6rem;
+    }
+
+    .btn {
+      min-height: 2.9rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .65rem 1.1rem;
+      border-radius: .75rem;
+      font-weight: 800;
+      font-size: .86rem;
+      border: 1px solid transparent;
+      transition: background .16s, transform .16s, box-shadow .16s, color .16s, border-color .16s;
+    }
+
+    .btn svg {
+      width: 1.05rem;
+      height: 1.05rem;
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--primary);
+      box-shadow: 0 10px 20px rgba(6, 126, 143, .22);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: .45rem;
+      margin-top: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .dot {
+      width: 2.05rem;
+      height: 2.05rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 800;
+      transition: all .16s;
+    }
+
+    .dot:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .dot.is-done {
+      border-color: var(--success);
+      color: var(--success);
+      background: var(--success-soft);
+    }
+
+    .dot.is-current {
+      border-color: var(--primary);
+      color: #fff;
+      background: var(--primary);
+      box-shadow: 0 4px 10px rgba(6, 126, 143, .28);
+    }
+
+    .result-view {
+      display: none;
+    }
+
+    .result-view.is-visible {
+      display: block;
+      animation: fadeUp .4s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .test-view.is-hidden {
+      display: none;
+    }
+
+    .result-hero {
+      padding: clamp(1.6rem, 4vw, 2.35rem);
+      border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+      border-radius: 1.25rem;
+      background: var(--surface-teal);
+      text-align: center;
+    }
+
+    .result-hero svg {
+      width: 2.85rem;
+      height: 2.85rem;
+      color: var(--primary);
+    }
+
+    .result-hero h1 {
+      margin: .9rem 0 .55rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 3.5vw, 2.15rem);
+      letter-spacing: -.03em;
+    }
+
+    .result-hero p {
+      max-width: 38rem;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .rank-table {
+      margin-top: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 1.1rem;
+      background: var(--surface);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .rank-item {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr auto;
+      align-items: center;
+      gap: .9rem;
+      padding: .9rem 1.15rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rank-item:last-child {
+      border-bottom: 0;
+    }
+
+    .rank-item.top {
+      background: var(--primary-soft);
+    }
+
+    .rank-num {
+      width: 2.1rem;
+      height: 2.1rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: .82rem;
+      background: var(--surface-muted);
+      color: var(--muted);
+    }
+
+    .rank-item.top .rank-num {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .rank-name {
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .rank-name span {
+      display: block;
+      margin-top: .1rem;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: .75rem;
+    }
+
+    .rank-score {
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.5rem;
+      justify-content: center;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      place-items: center;
+      padding: 1rem;
+      background: rgba(8, 18, 24, .55);
+    }
+
+    .modal.is-open {
+      display: grid;
+    }
+
+    .modal-card {
+      width: min(100%, 25.5rem);
+      padding: 1.5rem;
+      border-radius: 1.1rem;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-card h2 {
+      margin: 0 0 .55rem;
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+    }
+
+    .modal-card p {
+      margin: 0 0 1.1rem;
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: .65rem;
+    }
+
+    @media (max-width:640px) {
+      .nav {
+        padding-block: .55rem;
+      }
+
+      .btn-group {
+        flex-direction: column-reverse;
+        width: 100%;
+      }
+
+      .nav-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .item-row {
+        grid-template-columns: 3rem 1fr;
+      }
+
+      .rank-chip {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .rank-item {
+        grid-template-columns: 2.1rem 1fr auto;
+        padding: .75rem .9rem;
+      }
+
+      .group-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="shell nav">
+      <div class="brand">
+        <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+            aria-hidden="true">
+            <path d="M5 19V8.5L12 5l7 3.5V19" />
+            <path d="M3.5 19h17" />
+            <path d="M8 19v-5h8v5" />
+          </svg></div>
+        <div><strong>Tes RMIB</strong><span>MTs Muhammadiyah 1 Samarinda</span></div>
+      </div>
+      <div class="nav-right">
+        <div class="timer" role="timer" aria-live="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg><span id="timerLabel">00:00</span></div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Aktifkan mode gelap"><svg
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+          </svg></button>
+      </div>
+    </div>
+    <div class="shell" style="padding-bottom:.7rem;">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-label"><span id="progressText">Bagian 1 dari 9</span><span id="progressPercent">0%
+          selesai</span></div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="test-view" id="testView" aria-labelledby="groupTitle">
+      <div class="group-card">
+        <div class="group-head">
+          <div class="group-top">
+            <span class="group-eyebrow" id="groupEyebrow">Bagian 1 dari 9</span>
+            <span class="used-count" id="usedCount">0 / 12 terisi</span>
+          </div>
+          <h1 id="groupTitle">Susun urutan minatmu</h1>
+          <p>Beri peringkat 1 sampai 12 pada setiap aktivitas di bawah. Angka 1 untuk yang paling kamu minati, angka 12
+            untuk yang paling tidak kamu minati.</p>
+        </div>
+
+        <div class="rank-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 8v5M12 16h.01" stroke-linecap="round" />
+          </svg>
+          <span>Setiap angka hanya bisa dipakai sekali — begitu dipilih, angka itu otomatis hilang dari pilihan
+            aktivitas lain di bagian ini.</span>
+        </div>
+
+        <ul class="item-list" id="itemList" role="list"></ul>
+        <p class="group-error" id="groupError" role="alert" aria-live="polite">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 9v4M12 17h.01" stroke-linecap="round" />
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+          Lengkapi seluruh peringkat 1–12 sebelum melanjutkan.
+        </p>
+
+        <div class="nav-bar">
+          <div class="nav-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="10" rx="2" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+            </svg>
+            <span>Jawaban tersimpan otomatis pada perangkat ini.</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-outline" type="button" id="prevButton">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M19 12H5M11 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Sebelumnya
+            </button>
+            <button class="btn btn-primary" type="button" id="nextButton">
+              <span id="nextLabel">Selanjutnya</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <nav class="dots" id="dots" aria-label="Navigasi bagian tes"></nav>
+    </section>
+
+    <section class="result-view" id="resultView" aria-labelledby="resultTitle">
+      <div class="result-hero">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M9 12l2 2 4-4" />
+          <circle cx="12" cy="12" r="9" />
+        </svg>
+        <h1 id="resultTitle">Tes RMIB selesai</h1>
+        <p>Berikut hasil pemetaan minatmu berdasarkan 12 kategori RMIB, diurutkan dari yang paling menonjol. Skor lebih
+          kecil menunjukkan minat yang lebih tinggi pada kategori tersebut.</p>
+      </div>
+
+      <div class="rank-table" id="rankTable" aria-label="Peringkat kategori minat"></div>
+
+      <div class="result-actions">
+        <button class="btn btn-outline" type="button" id="reviewButton">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 12s3.5-6 8-6 8 6 8 6-3.5 6-8 6-8-6-8-6Z" />
+            <circle cx="12" cy="12" r="2.4" />
+          </svg>
+          Tinjau kembali jawaban
+        </button>
+        <button class="btn btn-primary" type="button" id="finishButton">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Kirim &amp; simpan hasil
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="submitModal" role="dialog" aria-modal="true" aria-labelledby="submitTitle" aria-hidden="true">
+    <div class="modal-card">
+      <h2 id="submitTitle">Kirim hasil tes?</h2>
+      <p>Setelah dikirim, jawabanmu tidak dapat diubah kembali. Pastikan seluruh bagian sudah diperiksa.</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" type="button" id="cancelSubmit">Kembali</button>
+        <button class="btn btn-primary" type="button" id="confirmSubmit">Ya, Kirim</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const GROUPS = { "A": [{ "cat": "Out", "text": "Bekerja di perkebunan/pertanian" }, { "cat": "Me", "text": "Memperbaiki mesin kendaraan" }, { "cat": "Comp", "text": "Menghitung anggaran keuangan" }, { "cat": "Sci", "text": "Melakukan eksperimen di laboratorium" }, { "cat": "Pers", "text": "Menjadi sales atau marketing" }, { "cat": "Aesth", "text": "Melukis atau menggambar" }, { "cat": "Lit", "text": "Menulis artikel atau cerita" }, { "cat": "Mus", "text": "Memainkan alat musik" }, { "cat": "SS", "text": "Membantu masyarakat kurang mampu" }, { "cat": "Cler", "text": "Mengarsipkan dokumen kantor" }, { "cat": "Prac", "text": "Membuat kerajinan dari kayu" }, { "cat": "Med", "text": "Merawat orang sakit" }], "B": [{ "cat": "Me", "text": "Merancang alat elektronik" }, { "cat": "Comp", "text": "Menjadi akuntan atau kasir" }, { "cat": "Sci", "text": "Meneliti fenomena alam" }, { "cat": "Pers", "text": "Melakukan negosiasi bisnis" }, { "cat": "Aesth", "text": "Mendesain produk kreatif" }, { "cat": "Lit", "text": "Menjadi penulis buku" }, { "cat": "Mus", "text": "Menjadi penyanyi atau musisi" }, { "cat": "SS", "text": "Menjadi relawan sosial" }, { "cat": "Cler", "text": "Menjadi staf administrasi" }, { "cat": "Prac", "text": "Menjahit atau merancang pakaian" }, { "cat": "Med", "text": "Menjadi dokter atau perawat" }, { "cat": "Out", "text": "Menjadi pemandu wisata alam" }], "C": [{ "cat": "Comp", "text": "Menganalisis data statistik" }, { "cat": "Sci", "text": "Menjadi peneliti sains" }, { "cat": "Pers", "text": "Menjadi customer service" }, { "cat": "Aesth", "text": "Menjadi fotografer" }, { "cat": "Lit", "text": "Mengedit naskah tulisan" }, { "cat": "Mus", "text": "Menggubah lagu/komposisi musik" }, { "cat": "SS", "text": "Menjadi konselor atau pembimbing" }, { "cat": "Cler", "text": "Mengetik dan mengelola surat" }, { "cat": "Prac", "text": "Memperbaiki barang rumah tangga" }, { "cat": "Med", "text": "Membantu proses persalinan" }, { "cat": "Out", "text": "Bekerja sebagai petugas kehutanan" }, { "cat": "Me", "text": "Mengoperasikan mesin produksi" }], "D": [{ "cat": "Sci", "text": "Menganalisis data penelitian" }, { "cat": "Pers", "text": "Memberi presentasi ke klien" }, { "cat": "Aesth", "text": "Mendekorasi ruangan" }, { "cat": "Lit", "text": "Menjadi jurnalis" }, { "cat": "Mus", "text": "Mengajar musik" }, { "cat": "SS", "text": "Mengajar di sekolah" }, { "cat": "Cler", "text": "Menjadi sekretaris" }, { "cat": "Prac", "text": "Menjadi tukang bangunan" }, { "cat": "Med", "text": "Menjadi apoteker" }, { "cat": "Out", "text": "Melakukan survei lapangan/geologi" }, { "cat": "Me", "text": "Menjadi teknisi bengkel" }, { "cat": "Comp", "text": "Membuat laporan keuangan" }], "E": [{ "cat": "Pers", "text": "Menjadi humas perusahaan" }, { "cat": "Aesth", "text": "Membuat karya kerajinan tangan" }, { "cat": "Lit", "text": "Menulis puisi atau esai" }, { "cat": "Mus", "text": "Menjadi produser musik" }, { "cat": "SS", "text": "Menjadi pekerja sosial" }, { "cat": "Cler", "text": "Mengelola jadwal dan agenda" }, { "cat": "Prac", "text": "Membuat produk kerajinan tangan" }, { "cat": "Med", "text": "Memberikan pertolongan pertama" }, { "cat": "Out", "text": "Menjadi nelayan atau peternak" }, { "cat": "Me", "text": "Merakit komponen mekanik" }, { "cat": "Comp", "text": "Menjadi aktuaris asuransi" }, { "cat": "Sci", "text": "Mengembangkan teori ilmiah" }], "F": [{ "cat": "Aesth", "text": "Menjadi desainer grafis" }, { "cat": "Lit", "text": "Menjadi content writer" }, { "cat": "Mus", "text": "Bermain dalam orkestra/band" }, { "cat": "SS", "text": "Membimbing anak-anak yatim" }, { "cat": "Cler", "text": "Menjadi operator data entry" }, { "cat": "Prac", "text": "Menjadi juru masak/koki" }, { "cat": "Med", "text": "Menjadi terapis kesehatan" }, { "cat": "Out", "text": "Bekerja di proyek konstruksi luar ruangan" }, { "cat": "Me", "text": "Menjadi insinyur mesin" }, { "cat": "Comp", "text": "Mengelola pembukuan perusahaan" }, { "cat": "Sci", "text": "Menjadi ahli kimia atau fisika" }, { "cat": "Pers", "text": "Membangun relasi dengan mitra kerja" }], "G": [{ "cat": "Lit", "text": "Menyunting karya tulis" }, { "cat": "Mus", "text": "Menjadi sound engineer" }, { "cat": "SS", "text": "Menjadi fasilitator komunitas" }, { "cat": "Cler", "text": "Mengelola inventaris kantor" }, { "cat": "Prac", "text": "Merakit furnitur" }, { "cat": "Med", "text": "Menjadi bidan" }, { "cat": "Out", "text": "Menjadi atlet atau instruktur olahraga outdoor" }, { "cat": "Me", "text": "Memperbaiki peralatan rumah tangga" }, { "cat": "Comp", "text": "Menghitung proyeksi bisnis" }, { "cat": "Sci", "text": "Melakukan riset teknologi" }, { "cat": "Pers", "text": "Menjadi resepsionis" }, { "cat": "Aesth", "text": "Mendesain interior" }], "H": [{ "cat": "Mus", "text": "Menganalisis teori musik" }, { "cat": "SS", "text": "Menjadi guru bimbingan konseling" }, { "cat": "Cler", "text": "Menjadi resepsionis kantor" }, { "cat": "Prac", "text": "Menjadi tukang las" }, { "cat": "Med", "text": "Merawat pasien di rumah sakit" }, { "cat": "Out", "text": "Menjadi petugas SAR/penyelamat" }, { "cat": "Me", "text": "Mengoperasikan alat berat" }, { "cat": "Comp", "text": "Menjadi teller bank" }, { "cat": "Sci", "text": "Menjadi ilmuwan data" }, { "cat": "Pers", "text": "Menjadi event organizer" }, { "cat": "Aesth", "text": "Membuat karya seni digital" }, { "cat": "Lit", "text": "Menjadi penerjemah bahasa" }], "I": [{ "cat": "SS", "text": "Menjadi penyuluh masyarakat" }, { "cat": "Cler", "text": "Mengurus administrasi sekolah" }, { "cat": "Prac", "text": "Membuat produk kulit/anyaman" }, { "cat": "Med", "text": "Menjadi ahli gizi klinis" }, { "cat": "Out", "text": "Menjadi penjaga taman nasional" }, { "cat": "Me", "text": "Menjadi teknisi listrik" }, { "cat": "Comp", "text": "Melakukan audit keuangan" }, { "cat": "Sci", "text": "Mempelajari fenomena lingkungan" }, { "cat": "Pers", "text": "Menjadi konsultan bisnis" }, { "cat": "Aesth", "text": "Menjadi kurator seni" }, { "cat": "Lit", "text": "Menulis skenario" }, { "cat": "Mus", "text": "Menjadi dirigen paduan suara" }] };
+      const CATEGORIES = ["Out", "Me", "Comp", "Sci", "Pers", "Aesth", "Lit", "Mus", "SS", "Cler", "Prac", "Med"];
+      const CATEGORY_LABELS = { "Out": "Outdoor", "Me": "Mechanical", "Comp": "Computational", "Sci": "Scientific", "Pers": "Personal Contact", "Aesth": "Aesthetic", "Lit": "Literary", "Mus": "Musical", "SS": "Social Service", "Cler": "Clerical", "Prac": "Practical", "Med": "Medical" };
+      const GROUP_LETTERS = Object.keys(GROUPS);
+      const TOTAL_GROUPS = GROUP_LETTERS.length;
+      const ITEMS_PER_GROUP = 12;
+
+      const root = document.documentElement;
+      const themeButton = document.querySelector('[data-theme-toggle]');
+      const testView = document.getElementById('testView');
+      const resultView = document.getElementById('resultView');
+      const itemList = document.getElementById('itemList');
+      const groupEyebrow = document.getElementById('groupEyebrow');
+      const progressFill = document.getElementById('progressFill');
+      const progressText = document.getElementById('progressText');
+      const progressPercent = document.getElementById('progressPercent');
+      const groupError = document.getElementById('groupError');
+      const prevButton = document.getElementById('prevButton');
+      const nextButton = document.getElementById('nextButton');
+      const nextLabel = document.getElementById('nextLabel');
+      const dotsNav = document.getElementById('dots');
+      const timerLabel = document.getElementById('timerLabel');
+      const submitModal = document.getElementById('submitModal');
+      const cancelSubmit = document.getElementById('cancelSubmit');
+      const confirmSubmit = document.getElementById('confirmSubmit');
+      const finishButton = document.getElementById('finishButton');
+      const reviewButton = document.getElementById('reviewButton');
+      const rankTable = document.getElementById('rankTable');
+      const usedCountEl = document.getElementById('usedCount');
+
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.dataset.theme = theme;
+      themeButton.setAttribute('aria-label', theme === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+      themeButton.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = theme;
+        themeButton.setAttribute('aria-label', theme === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+      });
+
+      const answers = {};
+      GROUP_LETTERS.forEach(letter => { answers[letter] = new Array(ITEMS_PER_GROUP).fill(null); });
+
+      let currentIndex = 0;
+      let seconds = 0;
+      let timerId = null;
+
+      function startTimer() {
+        timerId = setInterval(() => {
+          seconds += 1;
+          const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+          const s = String(seconds % 60).padStart(2, '0');
+          timerLabel.textContent = `${m}:${s}`;
+        }, 1000);
+      }
+
+      function buildDots() {
+        dotsNav.innerHTML = '';
+        GROUP_LETTERS.forEach((letter, idx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'dot';
+          dot.textContent = letter;
+          dot.setAttribute('aria-label', `Ke bagian ${idx + 1}`);
+          dot.addEventListener('click', () => { currentIndex = idx; renderGroup(); });
+          dotsNav.appendChild(dot);
+        });
+      }
+
+      function updateDots() {
+        [...dotsNav.children].forEach((dot, idx) => {
+          const filled = answers[GROUP_LETTERS[idx]].every(v => v !== null);
+          dot.classList.toggle('is-done', filled);
+          dot.classList.toggle('is-current', idx === currentIndex);
+        });
+      }
+
+      function usedRanksExcept(letter, exceptIdx) {
+        const used = new Set();
+        answers[letter].forEach((v, idx) => { if (v !== null && idx !== exceptIdx) used.add(v); });
+        return used;
+      }
+
+      function renderGroup() {
+        const letter = GROUP_LETTERS[currentIndex];
+        const items = GROUPS[letter];
+        const groupAnswers = answers[letter];
+
+        groupEyebrow.textContent = `Bagian ${currentIndex + 1} dari ${TOTAL_GROUPS} — Kelompok ${letter}`;
+        groupError.classList.remove('is-visible');
+
+        itemList.innerHTML = '';
+        items.forEach((item, itemIdx) => {
+          const li = document.createElement('li');
+          li.className = 'item-row';
+          li.dataset.itemIndex = String(itemIdx);
+
+          const chip = document.createElement('div');
+          chip.className = 'rank-chip';
+
+          const select = document.createElement('select');
+          select.className = 'rank-select';
+          select.setAttribute('aria-label', `Peringkat untuk ${item.text}`);
+          select.dataset.itemIndex = String(itemIdx);
+          chip.appendChild(select);
+
+          const text = document.createElement('span');
+          text.className = 'item-text';
+          text.textContent = item.text;
+
+          li.appendChild(chip);
+          li.appendChild(text);
+          itemList.appendChild(li);
+
+          populateSelect(select, letter, itemIdx);
+          select.value = groupAnswers[itemIdx] !== null ? String(groupAnswers[itemIdx]) : '';
+
+          select.addEventListener('change', () => {
+            const val = select.value === '' ? null : parseInt(select.value, 10);
+            groupAnswers[itemIdx] = val;
+            refreshAllSelectsInGroup(letter);
+            validateGroupUI(letter);
+            updateDots();
+            updateUsedCount(letter);
+            updateProgress();
+          });
+        });
+
+        validateGroupUI(letter);
+        updateProgress();
+        updateDots();
+        updateUsedCount(letter);
+        prevButton.disabled = currentIndex === 0;
+        nextLabel.textContent = currentIndex === TOTAL_GROUPS - 1 ? 'Lihat hasil' : 'Selanjutnya';
+        testView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function populateSelect(select, letter, itemIdx) {
+        const currentVal = select.value;
+        const used = usedRanksExcept(letter, itemIdx);
+        select.innerHTML = '';
+
+        const blank = document.createElement('option');
+        blank.value = '';
+        blank.textContent = '—';
+        select.appendChild(blank);
+
+        for (let rank = 1; rank <= ITEMS_PER_GROUP; rank++) {
+          if (used.has(rank) && String(rank) !== currentVal) continue;
+          const opt = document.createElement('option');
+          opt.value = String(rank);
+          opt.textContent = String(rank);
+          select.appendChild(opt);
+        }
+        select.value = currentVal;
+      }
+
+      function refreshAllSelectsInGroup(letter) {
+        const selects = itemList.querySelectorAll('.rank-select');
+        selects.forEach(select => {
+          const itemIdx = parseInt(select.dataset.itemIndex, 10);
+          populateSelect(select, letter, itemIdx);
+        });
+      }
+
+      function updateUsedCount(letter) {
+        const filled = answers[letter].filter(v => v !== null).length;
+        usedCountEl.textContent = `${filled} / ${ITEMS_PER_GROUP} terisi`;
+      }
+
+      function validateGroupUI(letter) {
+        const groupAnswers = answers[letter];
+        const rows = [...itemList.children];
+        rows.forEach((row, idx) => {
+          row.classList.toggle('is-filled', groupAnswers[idx] !== null);
+        });
+      }
+
+      function isGroupValid(letter) {
+        const groupAnswers = answers[letter];
+        if (groupAnswers.some(v => v === null)) return false;
+        const unique = new Set(groupAnswers);
+        return unique.size === ITEMS_PER_GROUP;
+      }
+
+      function updateProgress() {
+        const doneCount = GROUP_LETTERS.filter(isGroupValid).length;
+        const percent = Math.round((doneCount / TOTAL_GROUPS) * 100);
+        progressFill.style.width = `${percent}%`;
+        progressText.textContent = `Bagian ${currentIndex + 1} dari ${TOTAL_GROUPS}`;
+        progressPercent.textContent = `${percent}% selesai`;
+      }
+
+      prevButton.addEventListener('click', () => {
+        if (currentIndex === 0) return;
+        currentIndex -= 1;
+        renderGroup();
+      });
+
+      nextButton.addEventListener('click', () => {
+        const letter = GROUP_LETTERS[currentIndex];
+        if (!isGroupValid(letter)) {
+          groupError.classList.add('is-visible');
+          return;
+        }
+        if (currentIndex < TOTAL_GROUPS - 1) {
+          currentIndex += 1;
+          renderGroup();
+        } else {
+          showResults();
+        }
+      });
+
+      function computeScores() {
+        const totals = {};
+        CATEGORIES.forEach(cat => { totals[cat] = 0; });
+        GROUP_LETTERS.forEach(letter => {
+          const items = GROUPS[letter];
+          const groupAnswers = answers[letter];
+          items.forEach((item, idx) => {
+            totals[item.cat] += groupAnswers[idx];
+          });
+        });
+        return totals;
+      }
+
+      function showResults() {
+        const invalidGroup = GROUP_LETTERS.find(letter => !isGroupValid(letter));
+        if (invalidGroup) {
+          currentIndex = GROUP_LETTERS.indexOf(invalidGroup);
+          renderGroup();
+          groupError.classList.add('is-visible');
+          return;
+        }
+
+        clearInterval(timerId);
+        const totals = computeScores();
+        const ranked = CATEGORIES
+          .map(cat => ({ cat, label: CATEGORY_LABELS[cat], score: totals[cat] }))
+          .sort((a, b) => a.score - b.score);
+
+        rankTable.innerHTML = '';
+        ranked.forEach((entry, idx) => {
+          const row = document.createElement('div');
+          row.className = 'rank-item' + (idx < 3 ? ' top' : '');
+          row.innerHTML = `
+        <div class="rank-num">${idx + 1}</div>
+        <div class="rank-name">${entry.label}<span>Kode kategori: ${entry.cat}</span></div>
+        <div class="rank-score">Skor ${entry.score}</div>
+      `;
+          rankTable.appendChild(row);
+        });
+
+        testView.classList.add('is-hidden');
+        resultView.classList.add('is-visible');
+        resultView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      reviewButton.addEventListener('click', () => {
+        resultView.classList.remove('is-visible');
+        testView.classList.remove('is-hidden');
+        currentIndex = 0;
+        renderGroup();
+      });
+
+      finishButton.addEventListener('click', () => {
+        submitModal.classList.add('is-open');
+        submitModal.setAttribute('aria-hidden', 'false');
+        cancelSubmit.focus();
+      });
+      cancelSubmit.addEventListener('click', () => {
+        submitModal.classList.remove('is-open');
+        submitModal.setAttribute('aria-hidden', 'true');
+        finishButton.focus();
+      });
+      submitModal.addEventListener('click', e => { if (e.target === submitModal) cancelSubmit.click(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && submitModal.classList.contains('is-open')) cancelSubmit.click(); });
+      confirmSubmit.addEventListener('click', () => {
+        confirmSubmit.textContent = 'Hasil siap disimpan ke server';
+        confirmSubmit.disabled = true;
+        cancelSubmit.textContent = 'Tutup';
+      });
+
+      buildDots();
+      renderGroup();
+      startTimer();
+
+      window.addEventListener('beforeunload', (e) => {
+        const anyProgress = GROUP_LETTERS.some(letter => answers[letter].some(v => v !== null));
+        if (anyProgress && !resultView.classList.contains('is-visible')) {
+          e.preventDefault();
+          e.returnValue = '';
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

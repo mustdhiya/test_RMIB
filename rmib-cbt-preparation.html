@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Halaman persiapan CBT RMIB — MTs Muhammadiyah 1 Samarinda.">
+  <title>Persiapan Tes RMIB — CBT RMIB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <style>
+    :root {
+      --bg: #f5f8fb;
+      --surface: #fff;
+      --surface-muted: #f8fafc;
+      --surface-teal: #edf8f9;
+      --text: #17212b;
+      --muted: #647483;
+      --border: #d9e3ea;
+      --primary: #067e8f;
+      --primary-hover: #056a77;
+      --primary-soft: #dff3f5;
+      --warning: #8d5a10;
+      --warning-soft: #fff5df;
+      --success: #186f45;
+      --success-soft: #e7f6ed;
+      --danger: #b42318;
+      --shadow: 0 18px 46px rgba(29, 55, 72, .11);
+      --font-body: "DM Sans", Arial, sans-serif;
+      --font-display: "Manrope", Arial, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #11191d;
+      --surface: #19252b;
+      --surface-muted: #1e2c32;
+      --surface-teal: #15363c;
+      --text: #e8eff1;
+      --muted: #aab9be;
+      --border: #33464d;
+      --primary: #60c8d1;
+      --primary-hover: #84d9df;
+      --primary-soft: #1a4248;
+      --warning: #f2bd62;
+      --warning-soft: #473a20;
+      --success: #76d6a1;
+      --success-soft: #1c3c2c;
+      --danger: #ff9e98;
+      --shadow: 0 18px 46px rgba(0, 0, 0, .28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: light;
+      scroll-behavior: smooth;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--primary) 36%, transparent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -5rem;
+      z-index: 20;
+      padding: .75rem 1rem;
+      border-radius: .6rem;
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .shell {
+      width: min(100% - 2rem, 68rem);
+      margin-inline: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+    }
+
+    .nav {
+      min-height: 4.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .mark {
+      width: 2.55rem;
+      height: 2.55rem;
+      display: grid;
+      place-items: center;
+      border-radius: .72rem;
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .mark svg {
+      width: 1.45rem;
+      height: 1.45rem;
+    }
+
+    .brand strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: .92rem;
+      letter-spacing: -.02em;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: .05rem;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .theme-toggle {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: .7rem;
+      color: var(--muted);
+      background: var(--surface);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .theme-toggle svg {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+
+    main {
+      padding: clamp(1.75rem, 4vw, 3.25rem) 0 3.5rem;
+    }
+
+    .welcome {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(15rem, .9fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .intro {
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid color-mix(in srgb, var(--primary) 19%, var(--border));
+      border-radius: 1.15rem;
+      background: var(--surface-teal);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      color: var(--primary);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: .55rem;
+      height: .55rem;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      letter-spacing: -.035em;
+    }
+
+    h1 {
+      max-width: 17ch;
+      margin: .75rem 0 .85rem;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.12;
+    }
+
+    .intro p {
+      max-width: 57ch;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .participant-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 1.15rem;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .participant-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .participant {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: .8rem 0 1.25rem;
+    }
+
+    .avatar {
+      width: 2.8rem;
+      height: 2.8rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--primary);
+      background: var(--primary-soft);
+      font-weight: 800;
+    }
+
+    .participant strong {
+      display: block;
+      font-size: .96rem;
+    }
+
+    .participant span {
+      display: block;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      width: max-content;
+      padding: .35rem .55rem;
+      border-radius: 999px;
+      color: var(--success);
+      background: var(--success-soft);
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .pill::before {
+      content: "";
+      width: .42rem;
+      height: .42rem;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .section {
+      margin-top: 1.5rem;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: .8rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .instruction-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .85rem;
+    }
+
+    .instruction {
+      padding: 1.15rem;
+      border: 1px solid var(--border);
+      border-radius: .9rem;
+      background: var(--surface);
+    }
+
+    .icon-box {
+      width: 2.25rem;
+      height: 2.25rem;
+      display: grid;
+      place-items: center;
+      margin-bottom: .85rem;
+      border-radius: .65rem;
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .icon-box svg {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+
+    .instruction h3 {
+      margin: 0 0 .35rem;
+      font-size: .95rem;
+    }
+
+    .instruction p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .notice {
+      display: flex;
+      gap: .75rem;
+      margin-top: 1.5rem;
+      padding: 1.05rem 1.1rem;
+      border: 1px solid color-mix(in srgb, var(--warning) 30%, var(--border));
+      border-radius: .9rem;
+      background: var(--warning-soft);
+    }
+
+    .notice svg {
+      flex: 0 0 auto;
+      width: 1.2rem;
+      height: 1.2rem;
+      color: var(--warning);
+      margin-top: .12rem;
+    }
+
+    .notice h2 {
+      margin: 0 0 .2rem;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      letter-spacing: 0;
+    }
+
+    .notice p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .agreement {
+      margin-top: 1.5rem;
+      padding: clamp(1.2rem, 3vw, 1.6rem);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background: var(--surface);
+    }
+
+    .agreement h2 {
+      margin: 0 0 .3rem;
+      font-size: 1.15rem;
+    }
+
+    .agreement>p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .checklist {
+      display: grid;
+      gap: .65rem;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .78rem .8rem;
+      border-radius: .7rem;
+      background: var(--surface-muted);
+      color: var(--text);
+      font-size: .84rem;
+      cursor: pointer;
+    }
+
+    .check-row input {
+      width: 1.05rem;
+      height: 1.05rem;
+      margin: .1rem 0 0;
+      flex: 0 0 auto;
+      accent-color: var(--primary);
+    }
+
+    .check-row span {
+      color: var(--muted);
+    }
+
+    .action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.1rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .action-note {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .action-note svg {
+      width: 1rem;
+      height: 1rem;
+      color: var(--primary);
+    }
+
+    .start {
+      min-height: 3rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      padding: .75rem 1.05rem;
+      border: 0;
+      border-radius: .75rem;
+      color: #fff;
+      background: #a6b3b9;
+      font-weight: 800;
+      transition: background .18s, transform .18s, box-shadow .18s;
+      cursor: not-allowed;
+    }
+
+    .start.is-ready {
+      background: var(--primary);
+      box-shadow: 0 9px 17px rgba(6, 126, 143, .18);
+      cursor: pointer;
+    }
+
+    .start.is-ready:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .start svg {
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+
+    .inline-error {
+      display: none;
+      margin-top: .75rem;
+      color: var(--danger);
+      font-size: .8rem;
+    }
+
+    .inline-error.is-visible {
+      display: block;
+    }
+
+    footer {
+      padding: 1.25rem 0 2rem;
+      color: var(--muted);
+      font-size: .74rem;
+      text-align: center;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: none;
+      place-items: center;
+      padding: 1rem;
+      background: rgba(7, 24, 31, .55);
+    }
+
+    .modal.is-open {
+      display: grid;
+    }
+
+    .modal-card {
+      width: min(100%, 26rem);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-card h2 {
+      margin: 0 0 .55rem;
+      font-size: 1.3rem;
+    }
+
+    .modal-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .modal-list {
+      margin: 1rem 0 1.25rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .modal-list li+li {
+      margin-top: .4rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: .65rem;
+    }
+
+    .button-outline,
+    .button-primary {
+      min-height: 2.65rem;
+      padding: .6rem .85rem;
+      border-radius: .65rem;
+      font-weight: 800;
+    }
+
+    .button-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .button-primary {
+      border: 1px solid var(--primary);
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .button-primary.is-loading {
+      opacity: .85;
+      cursor: progress;
+    }
+
+    .spinner {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, .4);
+      border-top-color: #fff;
+      animation: spin .7s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width:760px) {
+      .welcome {
+        grid-template-columns: 1fr;
+      }
+
+      .instruction-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .participant-card {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .participant {
+        margin: 0;
+      }
+
+      .participant-card>p {
+        display: none;
+      }
+    }
+
+    @media (max-width:520px) {
+      .shell {
+        width: min(100% - 1.25rem, 68rem);
+      }
+
+      .action-bar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .start {
+        width: 100%;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .participant-card {
+        display: block;
+      }
+
+      .participant {
+        margin: .8rem 0 0;
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#content">Lewati ke isi utama</a>
+  <header>
+    <div class="shell nav">
+      <div class="brand" aria-label="CBT RMIB">
+        <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+            aria-hidden="true">
+            <path d="M5 19V8.5L12 5l7 3.5V19" />
+            <path d="M3.5 19h17" />
+            <path d="M8 19v-5h8v5" />
+            <path d="M9.5 9.5h.01M14.5 9.5h.01" stroke-linecap="round" />
+          </svg></div>
+        <div><strong>CBT RMIB</strong><span>MTs Muhammadiyah 1 Samarinda</span></div>
+      </div><button class="theme-toggle" type="button" data-theme-toggle aria-label="Aktifkan mode gelap"
+        title="Ubah tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+        </svg></button>
+    </div>
+  </header>
+  <main id="content" class="shell">
+    <section class="welcome" aria-labelledby="page-title">
+      <div class="intro">
+        <div class="eyebrow">Sesi tes siap dimulai</div>
+        <h1 id="page-title">Halo, <span data-participant-name>Peserta</span>. Siapkan dirimu sebelum mulai.</h1>
+        <p>RMIB membantu mengenali pola ketertarikan terhadap berbagai jenis aktivitas kerja. Tidak ada jawaban benar
+          atau salah—pilih urutan yang paling mencerminkan minatmu saat ini.</p>
+      </div>
+      <aside class="participant-card" aria-label="Informasi peserta">
+        <p>Peserta terdaftar</p>
+        <div class="participant">
+          <div class="avatar" aria-hidden="true" data-participant-initials>PS</div>
+          <div><strong data-participant-name>Peserta</strong><span data-participant-details>NISN belum tersedia · Kelas
+              belum tersedia</span></div>
+        </div><span class="pill">Akun terverifikasi</span>
+      </aside>
+    </section>
+    <section class="section" aria-labelledby="instruction-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="instruction-title">Sebelum mengerjakan</h2>
+          <p>Luangkan waktu sejenak untuk membaca tiga hal berikut.</p>
+        </div>
+      </div>
+      <div class="instruction-grid">
+        <article class="instruction">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M12 2a7 7 0 0 0-7 7v4a7 7 0 0 0 14 0V9a7 7 0 0 0-7-7Z" />
+              <path d="M8 13c1 .8 2.3 1.2 4 1.2S15 13.8 16 13M9 9h.01M15 9h.01" stroke-linecap="round" />
+            </svg></div>
+          <h3>Jawab dengan jujur</h3>
+          <p>Pilih berdasarkan ketertarikan pribadi, bukan harapan orang lain atau pekerjaan yang dianggap paling baik.
+          </p>
+        </article>
+        <article class="instruction">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></div>
+          <h3>Kerjakan dengan tenang</h3>
+          <p>Tidak perlu terburu-buru. Bacalah pilihan aktivitas dan susun urutannya sesuai minatmu.</p>
+        </article>
+        <article class="instruction">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M7 3h10v18H7z" />
+              <path d="M10 8h4M10 12h4M10 16h2" stroke-linecap="round" />
+            </svg></div>
+          <h3>Periksa sebelum lanjut</h3>
+          <p>Pastikan semua urutan pada satu halaman sudah terisi sebelum pindah ke halaman berikutnya.</p>
+        </article>
+      </div>
+    </section>
+    <section class="notice" aria-labelledby="notice-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" aria-hidden="true">
+        <path d="M12 3 3 20h18L12 3Z" />
+        <path d="M12 9v4M12 17h.01" stroke-linecap="round" />
+      </svg>
+      <div>
+        <h2 id="notice-title">Catatan penting</h2>
+        <p>Hasil RMIB adalah bahan diskusi dan eksplorasi minat, bukan penentu tunggal jurusan, sekolah lanjutan, atau
+          pekerjaan. Jika mengalami kendala teknis, jangan menutup halaman—segera hubungi pengawas atau guru BK.</p>
+      </div>
+    </section>
+    <section class="agreement" aria-labelledby="agreement-title">
+      <h2 id="agreement-title">Konfirmasi kesiapan peserta</h2>
+      <p>Centang semua pernyataan berikut untuk mengaktifkan tombol mulai tes.</p>
+      <div class="checklist"><label class="check-row"><input class="agreement-check" type="checkbox"><span>Saya memahami
+            bahwa tes ini bertujuan membantu pemetaan minat dan bakat saya.</span></label><label
+          class="check-row"><input class="agreement-check" type="checkbox"><span>Saya akan menjawab secara jujur
+            berdasarkan ketertarikan pribadi saya.</span></label><label class="check-row"><input class="agreement-check"
+            type="checkbox"><span>Saya siap mengerjakan tes secara mandiri dan akan meminta bantuan pengawas bila ada
+            kendala teknis.</span></label></div>
+      <p id="agreementError" class="inline-error" role="alert" aria-live="polite">Centang seluruh pernyataan kesiapan
+        untuk melanjutkan.</p>
+      <div class="action-bar">
+        <div class="action-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <rect x="4" y="10" width="16" height="10" rx="2" />
+            <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+          </svg> Progres tes akan disimpan setelah implementasi backend.</div><button id="startButton" class="start"
+          type="button" aria-disabled="true" disabled><span>Mulai Tes RMIB</span><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg></button>
+      </div>
+    </section>
+  </main>
+  <footer class="shell">CBT RMIB · Unit Bimbingan dan Konseling · MTs Muhammadiyah 1 Samarinda</footer>
+  <div id="startModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-card">
+      <h2 id="modalTitle">Siap memulai tes?</h2>
+      <p>Setelah tes dimulai, lanjutkan pengerjaan hingga selesai. Jangan me-refresh atau menutup halaman kecuali ada
+        arahan dari pengawas.</p>
+      <ul class="modal-list">
+        <li>Jawablah berdasarkan minat yang paling sesuai.</li>
+        <li>Gunakan tombol berikutnya setelah urutan terisi.</li>
+        <li>Hubungi pengawas jika terjadi kendala teknis.</li>
+      </ul>
+      <div class="modal-actions"><button class="button-outline" type="button" id="cancelStart">Kembali</button><button
+          class="button-primary" type="button" id="confirmStart">Ya, Mulai Tes</button></div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButton = document.querySelector('[data-theme-toggle]');
+      const checks = [...document.querySelectorAll('.agreement-check')];
+      const startButton = document.getElementById('startButton');
+      const error = document.getElementById('agreementError');
+      const modal = document.getElementById('startModal');
+      const cancelStart = document.getElementById('cancelStart');
+      const confirmStart = document.getElementById('confirmStart');
+      const getCookie = (name) => document.cookie.split('; ').find(row => row.startsWith(`${name}=`))?.split('=').slice(1).join('=') || '';
+      const cookieValue = (name) => { try { return decodeURIComponent(getCookie(name)); } catch { return ''; } };
+      const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map(word => word[0]).join('').toUpperCase() || 'PS';
+
+      // Sumber utama untuk prototype: cookie. Jika cookie belum tersedia, gunakan parameter URL sebagai fallback.
+      const query = new URLSearchParams(window.location.search);
+      const participant = {
+        name: cookieValue('rmib_name') || query.get('name') || 'Peserta',
+        nisn: cookieValue('rmib_nisn') || query.get('nisn') || '',
+        className: cookieValue('rmib_class') || query.get('class') || ''
+      };
+      document.querySelectorAll('[data-participant-name]').forEach(el => { el.textContent = participant.name; });
+      document.querySelector('[data-participant-initials]').textContent = initials(participant.name);
+      const details = [participant.nisn ? `NISN: ${participant.nisn}` : '', participant.className].filter(Boolean).join(' · ');
+      if (details) document.querySelector('[data-participant-details]').textContent = details;
+
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.dataset.theme = theme;
+      themeButton.setAttribute('aria-label', theme === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+      themeButton.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.dataset.theme = theme; themeButton.setAttribute('aria-label', theme === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'); });
+      const updateStartState = () => { const ready = checks.every(check => check.checked); startButton.disabled = !ready; startButton.classList.toggle('is-ready', ready); startButton.setAttribute('aria-disabled', String(!ready)); if (ready) error.classList.remove('is-visible'); };
+      checks.forEach(check => check.addEventListener('change', updateStartState));
+      const openModal = () => { modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); cancelStart.focus(); };
+      const closeModal = () => { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); startButton.focus(); };
+      startButton.addEventListener('click', () => { if (startButton.disabled) { error.classList.add('is-visible'); return; } openModal(); });
+      cancelStart.addEventListener('click', closeModal);
+      modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+
+      confirmStart.addEventListener('click', () => {
+        confirmStart.disabled = true;
+        cancelStart.disabled = true;
+        confirmStart.classList.add('is-loading');
+        confirmStart.innerHTML = '<span class="spinner" aria-hidden="true"></span> Menyiapkan tes...';
+
+        // Bawa data peserta ke halaman tes lewat query string agar timer/hasil tetap terhubung ke identitas yang sama.
+        const params = new URLSearchParams();
+        if (participant.name) params.set('name', participant.name);
+        if (participant.nisn) params.set('nisn', participant.nisn);
+        if (participant.className) params.set('class', participant.className);
+
+        const target = './rmib-cbt-test.html' + (params.toString() ? `?${params.toString()}` : '');
+        setTimeout(() => { window.location.href = target; }, 450);
+      });
+    })();
+  </script>
+</body>
+
+</html>

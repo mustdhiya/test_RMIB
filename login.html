@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Halaman login CBT RMIB — MTs Muhammadiyah 1 Samarinda.">
+  <title>Masuk CBT RMIB — MTs Muhammadiyah 1 Samarinda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <style>
+    :root {
+      --bg: #f5f8fb;
+      --surface: #ffffff;
+      --surface-soft: #eef6f8;
+      --surface-muted: #f8fafc;
+      --text: #17212b;
+      --muted: #637181;
+      --border: #d9e2ea;
+      --primary: #067e8f;
+      --primary-hover: #056976;
+      --primary-soft: #dff2f4;
+      --warning: #9a5b05;
+      --warning-soft: #fff4d8;
+      --danger: #b42318;
+      --danger-soft: #fff0ef;
+      --success: #197448;
+      --success-soft: #e7f6ed;
+      --shadow: 0 20px 48px rgba(25, 49, 69, .12);
+      --font-body: "DM Sans", Arial, sans-serif;
+      --font-display: "Manrope", Arial, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #11191d;
+      --surface: #19252b;
+      --surface-soft: #153238;
+      --surface-muted: #1e2c32;
+      --text: #e8eff1;
+      --muted: #a9b7bc;
+      --border: #33454c;
+      --primary: #5bc3cd;
+      --primary-hover: #7bd4db;
+      --primary-soft: #1a4147;
+      --warning: #f3bd5a;
+      --warning-soft: #45391e;
+      --danger: #ff9d96;
+      --danger-soft: #482825;
+      --success: #73d5a0;
+      --success-soft: #1c3b2c;
+      --shadow: 0 20px 48px rgba(0, 0, 0, .3);
+    }
+
+    * { box-sizing: border-box; }
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 35%, transparent); outline-offset: 2px; }
+
+    .page {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(380px, .85fr);
+    }
+    .brand-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 100dvh;
+      padding: clamp(2rem, 5vw, 5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #f5fbfc;
+      background: linear-gradient(145deg, #075d6b 0%, #067e8f 54%, #0a9ba8 100%);
+    }
+    .brand-panel::before,
+    .brand-panel::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+    .brand-panel::before {
+      width: 28rem;
+      height: 28rem;
+      right: -12rem;
+      top: -10rem;
+      border: 1px solid rgba(255,255,255,.17);
+      box-shadow: 0 0 0 2.5rem rgba(255,255,255,.04), 0 0 0 6rem rgba(255,255,255,.03);
+    }
+    .brand-panel::after {
+      width: 20rem;
+      height: 20rem;
+      left: -9rem;
+      bottom: -10rem;
+      background: rgba(255,255,255,.06);
+    }
+    .brand-panel > * { position: relative; z-index: 1; }
+    .brand-lockup { display: flex; align-items: center; gap: .875rem; }
+    .brand-mark {
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      border-radius: .9rem;
+      background: #ffffff;
+      color: #067e8f;
+      box-shadow: 0 8px 20px rgba(0,0,0,.14);
+    }
+    .brand-mark svg { width: 1.75rem; height: 1.75rem; }
+    .brand-name { margin: 0; font-family: var(--font-display); font-size: 1rem; font-weight: 800; letter-spacing: .01em; }
+    .brand-subtitle { margin: .15rem 0 0; font-size: .8rem; color: rgba(255,255,255,.78); }
+    .hero { max-width: 41rem; margin-block: 3rem; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .5rem; padding: .42rem .7rem; border-radius: 999px; background: rgba(255,255,255,.14); font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .hero h1 { margin: 1.1rem 0 1rem; font-family: var(--font-display); font-size: clamp(2rem, 4.2vw, 4rem); line-height: 1.1; letter-spacing: -.045em; }
+    .hero p { max-width: 36rem; margin: 0; color: rgba(255,255,255,.86); font-size: clamp(1rem, 1.5vw, 1.125rem); }
+    .steps { display: grid; gap: .75rem; max-width: 38rem; }
+    .step { display: grid; grid-template-columns: 2rem 1fr; align-items: start; gap: .75rem; padding: .9rem 1rem; border: 1px solid rgba(255,255,255,.16); border-radius: .85rem; background: rgba(7,71,80,.18); }
+    .step-number { width: 1.75rem; height: 1.75rem; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.18); font-size: .78rem; font-weight: 800; }
+    .step strong { display: block; font-size: .92rem; }
+    .step span { color: rgba(255,255,255,.76); font-size: .83rem; }
+    .brand-footer { color: rgba(255,255,255,.7); font-size: .8rem; }
+
+    .login-panel { position: relative; display: grid; place-items: center; padding: 2rem; }
+    .theme-toggle { position: absolute; top: 1.25rem; right: 1.25rem; width: 2.75rem; height: 2.75rem; display: grid; place-items: center; border: 1px solid var(--border); border-radius: .75rem; color: var(--muted); background: var(--surface); }
+    .theme-toggle:hover { border-color: var(--primary); color: var(--primary); }
+    .theme-toggle svg { width: 1.25rem; height: 1.25rem; }
+    .login-card { width: min(100%, 27rem); padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid var(--border); border-radius: 1.35rem; background: var(--surface); box-shadow: var(--shadow); }
+    .login-card h2 { margin: 0; font-family: var(--font-display); font-size: 1.65rem; line-height: 1.2; letter-spacing: -.035em; }
+    .login-card > p { margin: .55rem 0 1.75rem; color: var(--muted); font-size: .92rem; }
+    .notice { display: flex; gap: .7rem; margin-bottom: 1.25rem; padding: .8rem .9rem; border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border)); border-radius: .75rem; background: var(--primary-soft); color: var(--text); font-size: .82rem; }
+    .notice svg { flex: 0 0 auto; width: 1.1rem; height: 1.1rem; color: var(--primary); margin-top: .08rem; }
+    .form-row { margin-bottom: 1.1rem; }
+    label { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .45rem; color: var(--text); font-size: .86rem; font-weight: 700; }
+    label span { color: var(--muted); font-size: .75rem; font-weight: 500; }
+    .input-wrap { position: relative; }
+    .field-icon { position: absolute; left: .9rem; top: 50%; transform: translateY(-50%); width: 1.1rem; height: 1.1rem; color: var(--muted); pointer-events: none; }
+    input { width: 100%; min-height: 3.1rem; padding: .75rem 2.9rem .75rem 2.7rem; border: 1px solid var(--border); border-radius: .75rem; color: var(--text); background: var(--surface-muted); font-size: 1rem; transition: border-color .18s, box-shadow .18s, background .18s; }
+    input::placeholder { color: color-mix(in srgb, var(--muted) 70%, transparent); }
+    input:hover { border-color: color-mix(in srgb, var(--primary) 45%, var(--border)); }
+    input:focus { border-color: var(--primary); background: var(--surface); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 14%, transparent); outline: none; }
+    .toggle-password { position: absolute; right: .45rem; top: 50%; transform: translateY(-50%); width: 2.25rem; height: 2.25rem; display: grid; place-items: center; border: 0; border-radius: .55rem; color: var(--muted); background: transparent; }
+    .toggle-password:hover { color: var(--primary); background: var(--primary-soft); }
+    .toggle-password svg { width: 1.1rem; height: 1.1rem; }
+    .field-help { display: block; margin-top: .38rem; color: var(--muted); font-size: .75rem; }
+    .form-error { display: none; margin: .2rem 0 1rem; padding: .7rem .8rem; border-radius: .65rem; background: var(--danger-soft); color: var(--danger); font-size: .82rem; }
+    .form-error.is-visible { display: block; }
+    .form-options { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1.25rem 0; }
+    .remember { display: flex; align-items: center; gap: .55rem; color: var(--muted); font-size: .82rem; cursor: pointer; }
+    .remember input { width: 1rem; min-height: 1rem; margin: 0; padding: 0; accent-color: var(--primary); }
+    .help-link { border: 0; padding: 0; color: var(--primary); background: transparent; font-size: .82rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .help-link:hover { color: var(--primary-hover); }
+    .submit { width: 100%; min-height: 3.2rem; display: inline-flex; align-items: center; justify-content: center; gap: .65rem; border: 0; border-radius: .8rem; color: #fff; background: var(--primary); box-shadow: 0 10px 18px rgba(6,126,143,.2); font-weight: 800; }
+    .submit:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .submit:active { transform: translateY(0); }
+    .submit:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+    .submit svg { width: 1.1rem; height: 1.1rem; }
+    .divider { display: flex; align-items: center; gap: .8rem; margin: 1.6rem 0 1rem; color: var(--muted); font-size: .74rem; }
+    .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .demo-title { margin: 0 0 .6rem; color: var(--muted); font-size: .78rem; font-weight: 700; }
+    .demo-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+    .demo-account { padding: .65rem .45rem; border: 1px solid var(--border); border-radius: .65rem; color: var(--text); background: var(--surface-muted); text-align: left; }
+    .demo-account:hover { border-color: var(--primary); background: var(--primary-soft); }
+    .demo-account strong { display: block; font-size: .76rem; }
+    .demo-account span { display: block; margin-top: .15rem; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .65rem; }
+    .privacy { margin: 1.25rem 0 0; color: var(--muted); font-size: .72rem; line-height: 1.55; text-align: center; }
+    .privacy svg { width: .9rem; height: .9rem; vertical-align: -.15rem; }
+    .help-dialog { position: fixed; inset: 0; z-index: 10; display: none; place-items: center; padding: 1rem; background: rgba(7, 21, 29, .52); }
+    .help-dialog.is-open { display: grid; }
+    .dialog-card { width: min(100%, 25rem); padding: 1.4rem; border-radius: 1rem; color: var(--text); background: var(--surface); box-shadow: var(--shadow); }
+    .dialog-card h3 { margin: 0 0 .6rem; font-family: var(--font-display); }
+    .dialog-card p { margin: 0 0 1rem; color: var(--muted); font-size: .9rem; }
+    .dialog-card ul { margin: 0 0 1.25rem; padding-left: 1.15rem; color: var(--muted); font-size: .85rem; }
+    .dialog-card li + li { margin-top: .45rem; }
+    .dialog-actions { display: flex; justify-content: flex-end; }
+    .dialog-actions button { padding: .6rem .9rem; border: 0; border-radius: .6rem; color: #fff; background: var(--primary); font-weight: 700; }
+
+    @media (max-width: 860px) {
+      .page { grid-template-columns: 1fr; }
+      .brand-panel { min-height: auto; padding: 1.5rem; }
+      .hero { margin: 2.5rem 0 2rem; }
+      .hero h1 { max-width: 26rem; }
+      .steps { display: none; }
+      .brand-footer { display: none; }
+      .login-panel { min-height: auto; padding: 1.5rem 1rem 2rem; }
+      .theme-toggle { top: 1rem; right: 1rem; }
+    }
+    @media (max-width: 420px) {
+      .brand-panel { padding: 1.25rem; }
+      .brand-lockup { gap: .65rem; }
+      .brand-mark { width: 2.65rem; height: 2.65rem; }
+      .login-card { padding: 1.3rem; border-radius: 1rem; }
+      .demo-list { grid-template-columns: 1fr; }
+      .form-options { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="brand-panel" aria-label="Informasi CBT RMIB">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-label="Logo CBT RMIB">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+            <path d="M5 19V8.5L12 5l7 3.5V19"/><path d="M3.5 19h17"/><path d="M8 19v-5h8v5"/><path d="M9.5 9.5h.01M14.5 9.5h.01" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <p class="brand-name">CBT RMIB</p>
+          <p class="brand-subtitle">MTs Muhammadiyah 1 Samarinda</p>
+        </div>
+      </div>
+
+      <div class="hero">
+        <span class="eyebrow">Pemetaan minat & bakat</span>
+        <h1>Kenali arah minatmu dengan lebih terukur.</h1>
+        <p>Masuk untuk mengerjakan tes Rothwell Miller Interest Blank (RMIB). Jawablah berdasarkan ketertarikan pribadimu, bukan jawaban yang dianggap paling baik.</p>
+      </div>
+
+      <div class="steps" aria-label="Tahapan tes">
+        <div class="step"><span class="step-number">1</span><div><strong>Masuk dengan akun tes</strong><span>Gunakan NISN dan kata sandi yang diberikan guru.</span></div></div>
+        <div class="step"><span class="step-number">2</span><div><strong>Kerjakan secara mandiri</strong><span>Baca instruksi pada setiap bagian sebelum menjawab.</span></div></div>
+        <div class="step"><span class="step-number">3</span><div><strong>Tinjau hasil bersama guru</strong><span>Hasil membantu proses eksplorasi pendidikan dan karier.</span></div></div>
+      </div>
+
+      <p class="brand-footer">© 2026 Unit Bimbingan dan Konseling · Akses khusus peserta terdaftar</p>
+    </section>
+
+    <section class="login-panel" aria-label="Form login">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Aktifkan mode gelap" title="Ubah tema">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+
+      <div class="login-card">
+        <h2>Masuk ke ruang tes</h2>
+        <p>Masukkan identitas peserta untuk melanjutkan ke CBT RMIB.</p>
+
+        <div class="notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v5M12 7h.01" stroke-linecap="round"/></svg>
+          <span>Pastikan koneksi internet stabil sebelum memulai tes.</span>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div id="formError" class="form-error" role="alert" aria-live="polite"></div>
+
+          <div class="form-row">
+            <label for="nisn">NISN <span>9–10 digit</span></label>
+            <div class="input-wrap">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M8 3v4M16 3v4M7 11h10M8 15h.01M12 15h.01M16 15h.01" stroke-linecap="round"/></svg>
+              <input id="nisn" name="nisn" type="text" inputmode="numeric" autocomplete="username" maxlength="10" placeholder="Contoh: 0111245371" required>
+            </div>
+            <small class="field-help">Masukkan NISN sesuai kartu pelajar.</small>
+          </div>
+
+          <div class="form-row">
+            <label for="password">Kata sandi</label>
+            <div class="input-wrap">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required>
+              <button class="toggle-password" type="button" id="togglePassword" aria-label="Tampilkan kata sandi" aria-pressed="false">
+                <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember" for="remember"><input id="remember" name="remember" type="checkbox"><span>Ingat akun di perangkat ini</span></label>
+            <button type="button" class="help-link" id="helpButton">Butuh bantuan?</button>
+          </div>
+
+          <button class="submit" type="submit" id="submitButton">
+            <span>Masuk ke CBT</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+
+        <div class="divider">atau gunakan akun demo</div>
+        <p class="demo-title">Klik akun untuk mengisi form secara otomatis</p>
+        <div class="demo-list">
+          <button class="demo-account" type="button" data-nisn="0111245371" data-password="AIS1139" data-name="Ahmad Ilham Saputra" data-class="IX A"><strong>Siswa 01</strong><span>0111245371</span></button>
+          <button class="demo-account" type="button" data-nisn="0111245372" data-password="AIS1140" data-name="Bella Anindya Putri" data-class="IX B"><strong>Siswa 02</strong><span>0111245372</span></button>
+          <button class="demo-account" type="button" data-nisn="0111245373" data-password="AIS1141" data-name="Candra Wijaya" data-class="IX C"><strong>Siswa 03</strong><span>0111245373</span></button>
+        </div>
+
+        <p class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Data tes bersifat rahasia dan digunakan untuk keperluan layanan bimbingan dan konseling.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="help-dialog" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle" aria-hidden="true">
+    <div class="dialog-card">
+      <h3 id="helpTitle">Bantuan akses CBT</h3>
+      <p>Jika tidak dapat masuk, lakukan pemeriksaan berikut terlebih dahulu.</p>
+      <ul>
+        <li>Pastikan NISN ditulis lengkap dan hanya berisi angka.</li>
+        <li>Periksa kembali kata sandi dari guru BK atau wali kelas.</li>
+        <li>Gunakan perangkat dan koneksi internet yang stabil.</li>
+        <li>Hubungi guru BK apabila akun belum tersedia atau kata sandi perlu diatur ulang.</li>
+      </ul>
+      <div class="dialog-actions"><button type="button" id="closeHelp">Mengerti</button></div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButton = document.querySelector('[data-theme-toggle]');
+      const form = document.getElementById('loginForm');
+      const nisn = document.getElementById('nisn');
+      const password = document.getElementById('password');
+      const togglePassword = document.getElementById('togglePassword');
+      const formError = document.getElementById('formError');
+      const submitButton = document.getElementById('submitButton');
+      const helpDialog = document.getElementById('helpDialog');
+      const helpButton = document.getElementById('helpButton');
+      const closeHelp = document.getElementById('closeHelp');
+
+      // Akun demo — sumber data peserta untuk prototipe statis.
+      // Saat backend Django tersedia, ganti blok validasi ini dengan pemanggilan endpoint login sesungguhnya.
+      const DEMO_ACCOUNTS = [
+        { nisn: '0111245371', password: 'AIS1139', name: 'Ahmad Ilham Saputra', className: 'IX A' },
+        { nisn: '0111245372', password: 'AIS1140', name: 'Bella Anindya Putri', className: 'IX B' },
+        { nisn: '0111245373', password: 'AIS1141', name: 'Candra Wijaya', className: 'IX C' },
+      ];
+
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.dataset.theme = theme;
+      themeButton.setAttribute('aria-label', theme === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+
+      themeButton.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = theme;
+        themeButton.setAttribute('aria-label', theme === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+      });
+
+      nisn.addEventListener('input', () => {
+        nisn.value = nisn.value.replace(/\D/g, '').slice(0, 10);
+        formError.classList.remove('is-visible');
+      });
+
+      togglePassword.addEventListener('click', () => {
+        const isHidden = password.type === 'password';
+        password.type = isHidden ? 'text' : 'password';
+        togglePassword.setAttribute('aria-pressed', String(isHidden));
+        togglePassword.setAttribute('aria-label', isHidden ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi');
+      });
+
+      document.querySelectorAll('.demo-account').forEach((button) => {
+        button.addEventListener('click', () => {
+          nisn.value = button.dataset.nisn;
+          password.value = button.dataset.password;
+          formError.classList.remove('is-visible');
+          password.focus();
+        });
+      });
+
+      function findAccount(nisnValue, passwordValue) {
+        return DEMO_ACCOUNTS.find(
+          (acc) => acc.nisn === nisnValue && acc.password === passwordValue
+        );
+      }
+
+      function showError(message) {
+        formError.textContent = message;
+        formError.className = 'form-error is-visible';
+        formError.style.background = '';
+        formError.style.color = '';
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const errors = [];
+        if (!/^\d{9,10}$/.test(nisn.value)) errors.push('NISN harus terdiri dari 9 atau 10 angka.');
+        if (!password.value.trim()) errors.push('Kata sandi belum diisi.');
+
+        if (errors.length) {
+          showError(errors[0]);
+          (nisn.value ? password : nisn).focus();
+          return;
+        }
+
+        const account = findAccount(nisn.value, password.value);
+        if (!account) {
+          showError('NISN atau kata sandi tidak cocok. Periksa kembali atau gunakan akun demo di bawah.');
+          password.focus();
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.querySelector('span').textContent = 'Memverifikasi...';
+
+        // Teruskan identitas peserta ke halaman persiapan lewat parameter URL.
+        // Ganti target ini menjadi endpoint Django saat backend sudah siap,
+        // dan pindahkan penyimpanan identitas peserta ke sesi/cookie sisi server.
+        const params = new URLSearchParams({
+          name: account.name,
+          nisn: account.nisn,
+          class: account.className,
+        });
+
+        setTimeout(() => {
+          window.location.href = `./rmib-cbt-preparation.html?${params.toString()}`;
+        }, 500);
+      });
+
+      const openDialog = () => { helpDialog.classList.add('is-open'); helpDialog.setAttribute('aria-hidden', 'false'); closeHelp.focus(); };
+      const closeDialog = () => { helpDialog.classList.remove('is-open'); helpDialog.setAttribute('aria-hidden', 'true'); helpButton.focus(); };
+      helpButton.addEventListener('click', openDialog);
+      closeHelp.addEventListener('click', closeDialog);
+      helpDialog.addEventListener('click', (event) => { if (event.target === helpDialog) closeDialog(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && helpDialog.classList.contains('is-open')) closeDialog(); });
+    })();
+  </script>
+</body>
+</html>

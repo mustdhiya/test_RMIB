@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Tes minat peminatan S1 Informatika — Jaringan & Rekayasa Sistem vs Komputasi Cerdas.">
+    <title>Tes Minat Peminatan Informatika — JRS vs KC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="logom.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lexend:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --surface: #fff;
+            --surface-muted: #f6f8fb;
+            --surface-a: #eef4ff;
+            --surface-b: #eefaf9;
+            --text: #161c2b;
+            --muted: #5f6b81;
+            --border: #dfe4ee;
+            --a: #4f5fe0;
+            --a-strong: #3a48c4;
+            --a-soft: #e7e9fb;
+            --b: #0f9e93;
+            --b-strong: #0c7f76;
+            --b-soft: #e0f6f2;
+            --success: #1a8f5a;
+            --success-soft: #e3f6ec;
+            --danger: #c93a3a;
+            --danger-soft: #fcebeb;
+            --shadow-sm: 0 2px 10px rgba(20, 25, 45, .06);
+            --shadow: 0 22px 48px rgba(20, 25, 45, .12);
+            --font-body: "Plus Jakarta Sans", Arial, sans-serif;
+            --font-display: "Lexend", "Plus Jakarta Sans", Arial, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0c1018;
+            --surface: #141a24;
+            --surface-muted: #171e29;
+            --surface-a: #181f36;
+            --surface-b: #122824;
+            --text: #eef1f6;
+            --muted: #9aa5b8;
+            --border: #262e3d;
+            --a: #8b95f5;
+            --a-strong: #a6aef9;
+            --a-soft: #1c2247;
+            --b: #4fd6c8;
+            --b-strong: #7ae4d9;
+            --b-soft: #0f2e2a;
+            --success: #5cd393;
+            --success-soft: #123527;
+            --danger: #f18a8a;
+            --danger-soft: #3a1c1c;
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, .3);
+            --shadow: 0 24px 56px rgba(0, 0, 0, .42);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            color-scheme: light;
+        }
+
+        html[data-theme="dark"] {
+            color-scheme: dark;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100dvh;
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        button:focus-visible,
+        [tabindex]:focus-visible {
+            outline: 3px solid color-mix(in srgb, var(--a) 40%, transparent);
+            outline-offset: 2px;
+        }
+
+        .shell {
+            width: min(100% - 2rem, 46rem);
+            margin-inline: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            border-bottom: 1px solid var(--border);
+            background: color-mix(in srgb, var(--surface) 90%, transparent);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            min-height: 4.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .75rem;
+            padding-block: .6rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            min-width: 0;
+        }
+
+        .mark {
+            width: 2.35rem;
+            height: 2.35rem;
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            border-radius: .7rem;
+            color: #fff;
+            background: linear-gradient(150deg, var(--a), var(--b));
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: .82rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand-text {
+            min-width: 0;
+        }
+
+        .brand-text strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: .86rem;
+            letter-spacing: -.01em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .brand-text span {
+            display: block;
+            color: var(--muted);
+            font-size: .7rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .theme-toggle {
+            width: 2.3rem;
+            height: 2.3rem;
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: .65rem;
+            color: var(--muted);
+            background: var(--surface);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--a);
+            color: var(--a);
+        }
+
+        .theme-toggle svg {
+            width: 1.05rem;
+            height: 1.05rem;
+        }
+
+        main {
+            flex: 1;
+            padding: 2.25rem 0 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .panel {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow);
+            padding: clamp(1.5rem, 4vw, 2.75rem);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Start screen */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .4rem .75rem;
+            border-radius: 999px;
+            background: var(--a-soft);
+            color: var(--a-strong);
+            font-size: .74rem;
+            font-weight: 700;
+            margin-bottom: 1.4rem;
+        }
+
+        .eyebrow svg {
+            width: .95rem;
+            height: .95rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            line-height: 1.2;
+            letter-spacing: -.02em;
+            margin: 0 0 1rem;
+        }
+
+        .hero-title .accent {
+            color: var(--a);
+        }
+
+        .hero-desc {
+            color: var(--muted);
+            font-size: .95rem;
+            line-height: 1.7;
+            margin: 0 0 1.75rem;
+            max-width: 56ch;
+        }
+
+        .track-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .9rem;
+            margin-bottom: 1.9rem;
+        }
+
+        .track-card {
+            padding: 1.1rem;
+            border-radius: 1.1rem;
+            border: 1px solid var(--border);
+        }
+
+        .track-card.a {
+            background: var(--surface-a);
+            border-color: color-mix(in srgb, var(--a) 22%, var(--border));
+        }
+
+        .track-card.b {
+            background: var(--surface-b);
+            border-color: color-mix(in srgb, var(--b) 22%, var(--border));
+        }
+
+        .track-head {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            font-weight: 800;
+            font-size: .86rem;
+            margin-bottom: .5rem;
+        }
+
+        .track-card.a .track-head {
+            color: var(--a-strong);
+        }
+
+        .track-card.b .track-head {
+            color: var(--b-strong);
+        }
+
+        .track-head svg {
+            width: 1.2rem;
+            height: 1.2rem;
+            flex: 0 0 auto;
+        }
+
+        .track-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .8rem;
+            line-height: 1.55;
+        }
+
+        .notice-row {
+            display: flex;
+            gap: .65rem;
+            padding: .85rem 1rem;
+            border-radius: .9rem;
+            background: var(--surface-muted);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: .8rem;
+            margin-bottom: 1.9rem;
+        }
+
+        .notice-row svg {
+            width: 1.05rem;
+            height: 1.05rem;
+            flex: 0 0 auto;
+            color: var(--a);
+            margin-top: .1rem;
+        }
+
+        .cta {
+            width: 100%;
+            min-height: 3.4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            border: 0;
+            border-radius: 1rem;
+            color: #fff;
+            background: linear-gradient(120deg, var(--a), var(--b));
+            font-weight: 800;
+            font-size: 1rem;
+            box-shadow: 0 14px 28px color-mix(in srgb, var(--a) 30%, transparent);
+            transition: transform .18s, box-shadow .18s;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 34px color-mix(in srgb, var(--a) 36%, transparent);
+        }
+
+        .cta svg {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+        /* Quiz screen */
+        .progress-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: .75rem;
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: .55rem;
+        }
+
+        .progress-head .pct {
+            color: var(--a);
+        }
+
+        .progress-track {
+            height: .5rem;
+            border-radius: 999px;
+            background: var(--border);
+            overflow: hidden;
+            margin-bottom: 1.9rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--a), var(--b));
+            width: 0%;
+            transition: width .35s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .question-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+            line-height: 1.4;
+            letter-spacing: -.01em;
+            margin: 0 0 1.6rem;
+        }
+
+        .options {
+            display: grid;
+            gap: .85rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.1rem 1.2rem;
+            border: 1.5px solid var(--border);
+            border-radius: 1.1rem;
+            background: var(--surface-muted);
+            text-align: left;
+            transition: border-color .16s, background .16s, transform .16s, box-shadow .16s;
+        }
+
+        .option:hover {
+            border-color: color-mix(in srgb, var(--a) 45%, var(--border));
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .option-badge {
+            flex: 0 0 auto;
+            width: 2.15rem;
+            height: 2.15rem;
+            border-radius: .65rem;
+            border: 1.5px solid var(--border);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: .85rem;
+            color: var(--muted);
+            background: var(--surface);
+            transition: border-color .16s, color .16s, background .16s;
+        }
+
+        .option-text {
+            flex: 1;
+            font-size: .94rem;
+            color: var(--text);
+            line-height: 1.6;
+            padding-top: .1rem;
+        }
+
+        .option.is-selected {
+            border-color: var(--a);
+            background: var(--a-soft);
+            box-shadow: 0 8px 20px color-mix(in srgb, var(--a) 18%, transparent);
+        }
+
+        .option.is-selected .option-badge {
+            border-color: var(--a);
+            background: var(--a);
+            color: #fff;
+        }
+
+        .quiz-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding-top: 1.3rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .6rem 1rem;
+            border-radius: .75rem;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--muted);
+            font-weight: 700;
+            font-size: .82rem;
+        }
+
+        .back-btn:hover {
+            border-color: var(--a);
+            color: var(--a);
+        }
+
+        .back-btn svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .hint-text {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            color: var(--muted);
+            font-size: .78rem;
+            font-style: italic;
+        }
+
+        .hint-text svg {
+            width: .9rem;
+            height: .9rem;
+            flex: 0 0 auto;
+        }
+
+        /* Result screen */
+        .result-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .85rem;
+            border-radius: 999px;
+            background: var(--success-soft);
+            color: var(--success);
+            font-size: .78rem;
+            font-weight: 800;
+            margin-bottom: 1.1rem;
+        }
+
+        .result-tag svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .result-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3.4vw, 2rem);
+            letter-spacing: -.02em;
+            margin: 0 0 .4rem;
+        }
+
+        .result-sub {
+            color: var(--muted);
+            font-size: .88rem;
+            margin: 0 0 1.75rem;
+        }
+
+        .winner-card {
+            padding: clamp(1.4rem, 3.5vw, 2rem);
+            border-radius: 1.35rem;
+            border: 1.5px solid var(--border);
+            text-align: left;
+            margin-bottom: 1.75rem;
+        }
+
+        .winner-card.a {
+            background: linear-gradient(160deg, var(--surface-a), var(--surface));
+            border-color: color-mix(in srgb, var(--a) 30%, var(--border));
+        }
+
+        .winner-card.b {
+            background: linear-gradient(160deg, var(--surface-b), var(--surface));
+            border-color: color-mix(in srgb, var(--b) 30%, var(--border));
+        }
+
+        .winner-head {
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+            margin-bottom: 1rem;
+        }
+
+        .winner-icon {
+            width: 3rem;
+            height: 3rem;
+            flex: 0 0 auto;
+            border-radius: .9rem;
+            display: grid;
+            place-items: center;
+        }
+
+        .winner-card.a .winner-icon {
+            background: color-mix(in srgb, var(--a) 18%, transparent);
+            color: var(--a-strong);
+        }
+
+        .winner-card.b .winner-icon {
+            background: color-mix(in srgb, var(--b) 18%, transparent);
+            color: var(--b-strong);
+        }
+
+        .winner-icon svg {
+            width: 1.65rem;
+            height: 1.65rem;
+        }
+
+        .winner-label {
+            display: block;
+            font-size: .72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin-bottom: .15rem;
+        }
+
+        .winner-card.a .winner-label {
+            color: var(--a-strong);
+        }
+
+        .winner-card.b .winner-label {
+            color: var(--b-strong);
+        }
+
+        .winner-name {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            letter-spacing: -.01em;
+            margin: 0;
+        }
+
+        .winner-desc {
+            color: var(--muted);
+            font-size: .88rem;
+            line-height: 1.7;
+            margin: 0 0 1.2rem;
+        }
+
+        .winner-steps {
+            padding: 1.1rem 1.2rem;
+            border-radius: 1rem;
+            background: color-mix(in srgb, var(--surface-muted) 70%, transparent);
+            border: 1px solid var(--border);
+        }
+
+        .winner-steps-title {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-weight: 800;
+            font-size: .84rem;
+            margin-bottom: .65rem;
+            color: var(--text);
+        }
+
+        .winner-steps-title svg {
+            width: 1.05rem;
+            height: 1.05rem;
+            color: inherit;
+        }
+
+        .winner-card.a .winner-steps-title svg {
+            color: var(--a-strong);
+        }
+
+        .winner-card.b .winner-steps-title svg {
+            color: var(--b-strong);
+        }
+
+        .winner-steps ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: var(--muted);
+            font-size: .83rem;
+            line-height: 1.65;
+        }
+
+        .winner-steps li+li {
+            margin-top: .4rem;
+        }
+
+        .winner-steps li strong {
+            color: var(--text);
+        }
+
+        .breakdown {
+            background: var(--surface-muted);
+            border: 1px solid var(--border);
+            border-radius: 1.15rem;
+            padding: 1.4rem 1.5rem;
+            margin-bottom: 1.75rem;
+            text-align: left;
+        }
+
+        .breakdown-title {
+            margin: 0 0 1.1rem;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .score-row {
+            margin-bottom: 1rem;
+        }
+
+        .score-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .score-head {
+            display: flex;
+            justify-content: space-between;
+            font-size: .86rem;
+            font-weight: 700;
+            margin-bottom: .45rem;
+        }
+
+        .score-head .name.a {
+            color: var(--a-strong);
+        }
+
+        .score-head .name.b {
+            color: var(--b-strong);
+        }
+
+        .score-head .value {
+            font-variant-numeric: tabular-nums;
+            color: var(--muted);
+        }
+
+        .score-track {
+            height: .65rem;
+            border-radius: 999px;
+            background: var(--border);
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            border-radius: 999px;
+            width: 0%;
+            transition: width .8s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .score-fill.a {
+            background: linear-gradient(90deg, var(--a), color-mix(in srgb, var(--a) 70%, white));
+        }
+
+        .score-fill.b {
+            background: linear-gradient(90deg, var(--b), color-mix(in srgb, var(--b) 70%, white));
+        }
+
+        .restart-btn {
+            width: 100%;
+            min-height: 3.1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: var(--surface);
+            color: var(--text);
+            font-weight: 800;
+            font-size: .88rem;
+        }
+
+        .restart-btn:hover {
+            border-color: var(--a);
+            color: var(--a);
+        }
+
+        .restart-btn svg {
+            width: 1.05rem;
+            height: 1.05rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 1.2rem 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: .74rem;
+        }
+
+        @media (max-width:640px) {
+            .track-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quiz-footer {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+
+            .hint-text {
+                justify-content: center;
+            }
+
+            .panel {
+                border-radius: 1.2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="shell nav">
+            <div class="brand">
+                <div class="mark">IF</div>
+                <div class="brand-text">
+                    <strong>Tes Minat Peminatan Informatika</strong>
+                    <span>Semester 5 &middot; Skenario perkuliahan & dunia kerja</span>
+                </div>
+            </div>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Aktifkan mode terang">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="shell">
+        <!-- START -->
+        <section class="panel" id="startScreen" aria-labelledby="startTitle">
+            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 8v4l2.5 2.5" stroke-linecap="round" />
+                </svg>Karir &amp; peminatan</span>
+            <h1 class="hero-title" id="startTitle">Bingung pilih peminatan <span class="accent">JRS atau KC?</span></h1>
+            <p class="hero-desc">Tes ini berisi 10 skenario nyata dari perkuliahan dan dunia kerja Informatika. Jawablah
+                berdasarkan kenyamanan dan ketertarikan pribadimu—jawaban tidak diberi label kategori, jadi pilih murni
+                sesuai dirimu, bukan yang terdengar paling keren.</p>
+
+            <div class="track-grid">
+                <div class="track-card a">
+                    <div class="track-head">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path
+                                d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M7 7h10" />
+                        </svg>
+                        Jaringan &amp; Rekayasa Sistem
+                    </div>
+                    <p>Infrastruktur server, cloud, keamanan siber, otomatisasi DevOps, dan stabilitas sistem.</p>
+                </div>
+                <div class="track-card b">
+                    <div class="track-head">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-.531c0-.895-.356-1.754-.988-2.386z" />
+                        </svg>
+                        Komputasi Cerdas
+                    </div>
+                    <p>Machine learning, kecerdasan buatan, pengolahan data besar, dan pola inferensi otomatis.</p>
+                </div>
+            </div>
+
+            <div class="notice-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 8v5M12 16h.01" stroke-linecap="round" />
+                </svg>
+                <span>Urutan pilihan diacak secara otomatis di setiap soal agar hasilnya lebih objektif dan tidak
+                    mengarahkan jawabanmu.</span>
+            </div>
+
+            <button class="cta" type="button" id="startButton">
+                Mulai tes interaktif
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="panel hidden" id="quizScreen" aria-labelledby="questionText">
+            <div class="progress-head">
+                <span id="questionNumberText">Pertanyaan 1 dari 10</span>
+                <span class="pct" id="progressPercentText">10% selesai</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <h2 class="question-text" id="questionText"></h2>
+            <div class="options" id="optionsContainer" role="list"></div>
+
+            <div class="quiz-footer">
+                <button class="back-btn hidden" type="button" id="prevButton">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M19 12H5M11 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Sebelumnya
+                </button>
+                <span class="hint-text">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 17.5v-1M12 14c0-1.5 1.8-1.7 1.8-3.3A1.8 1.8 0 0 0 12 9a1.8 1.8 0 0 0-1.8 1.8"
+                            stroke-linecap="round" />
+                        <circle cx="12" cy="12" r="9" />
+                    </svg>
+                    Pilih yang paling menggambarkan preferensimu
+                </span>
+            </div>
+        </section>
+
+        <!-- RESULT -->
+        <section class="panel hidden" id="resultScreen" aria-labelledby="resultTitle" style="text-align:center;">
+            <span class="result-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Analisis peminatan selesai
+            </span>
+            <h2 class="result-title" id="resultTitle">Hasil rekomendasi peminatanmu</h2>
+            <p class="result-sub">Berdasarkan 10 respons yang telah kamu selesaikan.</p>
+
+            <div class="winner-card" id="winnerCard"></div>
+
+            <div class="breakdown">
+                <p class="breakdown-title">Perbandingan skor minat</p>
+                <div class="score-row">
+                    <div class="score-head"><span class="name a">Jaringan &amp; Rekayasa Sistem</span><span
+                            class="value" id="aScoreText">0%</span></div>
+                    <div class="score-track">
+                        <div class="score-fill a" id="aScoreFill"></div>
+                    </div>
+                </div>
+                <div class="score-row">
+                    <div class="score-head"><span class="name b">Komputasi Cerdas</span><span class="value"
+                            id="bScoreText">0%</span></div>
+                    <div class="score-track">
+                        <div class="score-fill b" id="bScoreFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="restart-btn" type="button" id="restartButton">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M3 12a9 9 0 1 1 2.6 6.3M3 12V7m0 5h5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Ulangi tes
+            </button>
+        </section>
+    </main>
+
+    <footer class="shell">Panduan Peminatan S1 Informatika Semester 5 &bull; JRS vs KC</footer>
+
+    <script>
+        (() => {
+            const QUESTIONS = [
+                {
+                    q: "Ketika mendengar kata 'Sistem Komputer', masalah mana yang membuatmu paling penasaran untuk diselesaikan?",
+                    options: [
+                        { type: "JRS", text: "Bagaimana cara menjaga server aplikasi agar selalu aktif 24/7, tahan serangan hacker, dan mampu menangani jutaan traffic sekaligus." },
+                        { type: "KC", text: "Bagaimana cara membuat program yang bisa memprediksi tren masa depan, mengenali objek dalam gambar, atau memahami teks secara otomatis." }
+                    ]
+                },
+                {
+                    q: "Mata kuliah dasar mana yang paling kamu nikmati (atau paling terasa masuk akal bagimu) di Semester 1–4?",
+                    options: [
+                        { type: "JRS", text: "Jaringan Komputer, Sistem Operasi, Arsitektur Sistem, atau Komunikasi Data." },
+                        { type: "KC", text: "Matematika Diskrit, Probabilitas & Statistik, Pengenalan AI, atau Aljabar Linier." }
+                    ]
+                },
+                {
+                    q: "Tipe tugas/praktikum mana yang terasa lebih menyenangkan untuk dikerjakan?",
+                    options: [
+                        { type: "JRS", text: "Mengkonfigurasi Virtual Machine/Docker, mengatur IP/Routing, menguji keamanan port server, atau membuat arsitektur cloud." },
+                        { type: "KC", text: "Membersihkan dataset, melatih model machine learning, mengatur hyperparameter, dan menganalisis grafik akurasi/loss." }
+                    ]
+                },
+                {
+                    q: "Teknologi & tools mana yang paling menarik perhatianmu di antara berikut?",
+                    options: [
+                        { type: "JRS", text: "Linux Bash, AWS/Google Cloud, Docker, Kubernetes, Nginx, Wireshark, Cisco." },
+                        { type: "KC", text: "Python (Pandas, NumPy, Scikit-Learn), PyTorch, TensorFlow, Jupyter Notebook, SQL." }
+                    ]
+                },
+                {
+                    q: "Jika kamu membayangkan mengerjakan tugas akhir (skripsi), topik mana yang lebih ingin kamu teliti?",
+                    options: [
+                        { type: "JRS", text: "Rancang bangun infrastruktur server IoT berbasis microservices dan cloud, atau uji keamanan siber." },
+                        { type: "KC", text: "Deteksi dini penyakit berdasarkan citra medis menggunakan deep learning, atau chatbot pintar berbasis NLP." }
+                    ]
+                },
+                {
+                    q: "Ketika menemukan error dalam coding/sistem, mana tipe error yang lebih siap kamu hadapi?",
+                    options: [
+                        { type: "JRS", text: "Masalah konektivitas IP, port terblokir firewall, masalah permission Linux, atau error deployment container." },
+                        { type: "KC", text: "Error dimension mismatch pada matriks tensor, model overfitting/underfitting, atau data terdistribusi miring." }
+                    ]
+                },
+                {
+                    q: "Bagaimana pendekatanmu terhadap matematika & statistik?",
+                    options: [
+                        { type: "JRS", text: "Saya lebih suka fokus pada logika aliran data, protokol, konfigurasi sistem, dan implementasi infrastruktur nyata." },
+                        { type: "KC", text: "Saya tertarik mendalami rumus logika, kalkulus, kalkulasi probabilitas, dan perkalian matriks untuk algoritma." }
+                    ]
+                },
+                {
+                    q: "Dunia kerja seperti apa yang terbayang dalam impian karirmu?",
+                    options: [
+                        { type: "JRS", text: "Menjadi DevOps Engineer, Cloud Architect, Cybersecurity Specialist, atau Site Reliability Engineer." },
+                        { type: "KC", text: "Menjadi Machine Learning Engineer, Data Scientist, Data Engineer, atau Computer Vision Specialist." }
+                    ]
+                },
+                {
+                    q: "Produk akhir teknologi mana yang membuatmu berkata 'keren banget, aku ingin buat yang seperti ini'?",
+                    options: [
+                        { type: "JRS", text: "Infrastruktur sistem streaming yang tetap lancar tanpa buffering walau diakses ratusan juta pengguna bersamaan." },
+                        { type: "KC", text: "Sistem AI percakapan, algoritma rekomendasi konten, atau mobil otonom yang bisa menyetir sendiri." }
+                    ]
+                },
+                {
+                    q: "Bagaimana cara kerjamu yang paling efektif saat menyelesaikan masalah software?",
+                    options: [
+                        { type: "JRS", text: "Mendesain arsitektur yang tangguh, efisien, aman, dan dapat terhubung antar sistem/layanan." },
+                        { type: "KC", text: "Mengekstrak insight dari kumpulan data, melakukan eksperimen algoritma, dan mengoptimalkan performa model matematis." }
+                    ]
+                }
+            ];
+
+            const TRACK_META = {
+                JRS: {
+                    name: "Jaringan & Rekayasa Sistem",
+                    short: "JRS",
+                    cls: "a",
+                    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M7 7h10"/></svg>',
+                    desc: "Kamu memiliki kecenderungan kuat pada infrastruktur, arsitektur sistem, dan stabilitas layanan software. Kamu lebih menikmati hal-hal yang terstruktur dan nyata dalam ekosistem sistem operasi serta jaringan komputer, dibanding pemrosesan data statistik murni.",
+                    steps: [
+                        "Perdalam skill <strong>Linux System Administration</strong> & Bash Scripting.",
+                        "Pelajari konsep <strong>Docker Containerization</strong> & Cloud Computing (AWS / Google Cloud).",
+                        "Incar peran karir: <strong>DevOps Engineer, Cloud Architect, Site Reliability Engineer, atau Cybersecurity Specialist</strong>."
+                    ]
+                },
+                KC: {
+                    name: "Komputasi Cerdas",
+                    short: "KC",
+                    cls: "b",
+                    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-.531c0-.895-.356-1.754-.988-2.386z"/></svg>',
+                    desc: "Kamu memiliki pola pikir analitis dan tertarik pada pemrosesan data, kecerdasan buatan, dan pencarian pola otomatis. Kamu nyaman dengan eksplorasi eksperimental berbasis algoritma matematika dan optimasi data.",
+                    steps: [
+                        "Kuasai bahasa <strong>Python</strong> beserta ekosistemnya (Pandas, Scikit-Learn, PyTorch).",
+                        "Perkuat pemahaman dasar Statistik, Probabilitas, dan Aljabar Linier.",
+                        "Incar peran karir: <strong>Machine Learning Engineer, Data Scientist, AI Specialist, atau Computer Vision Engineer</strong>."
+                    ]
+                }
+            };
+
+            function shuffle(array) {
+                const arr = array.slice();
+                for (let i = arr.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+                return arr;
+            }
+
+            // Urutan opsi diacak sekali per soal saat load, sehingga posisi A/B tidak selalu sama
+            // dan tidak ada label kategori yang ditampilkan ke peserta.
+            const shuffledQuestions = QUESTIONS.map(q => ({ q: q.q, options: shuffle(q.options) }));
+
+            const root = document.documentElement;
+            const themeButton = document.querySelector('[data-theme-toggle]');
+            const startScreen = document.getElementById('startScreen');
+            const quizScreen = document.getElementById('quizScreen');
+            const resultScreen = document.getElementById('resultScreen');
+            const startButton = document.getElementById('startButton');
+            const restartButton = document.getElementById('restartButton');
+            const questionNumberText = document.getElementById('questionNumberText');
+            const progressPercentText = document.getElementById('progressPercentText');
+            const progressFill = document.getElementById('progressFill');
+            const questionText = document.getElementById('questionText');
+            const optionsContainer = document.getElementById('optionsContainer');
+            const prevButton = document.getElementById('prevButton');
+            const winnerCard = document.getElementById('winnerCard');
+            const aScoreText = document.getElementById('aScoreText');
+            const bScoreText = document.getElementById('bScoreText');
+            const aScoreFill = document.getElementById('aScoreFill');
+            const bScoreFill = document.getElementById('bScoreFill');
+
+            let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark';
+            root.dataset.theme = theme;
+            themeButton.addEventListener('click', () => {
+                theme = theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = theme;
+                themeButton.setAttribute('aria-label', theme === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+            });
+
+            let currentIndex = 0;
+            let answers = new Array(shuffledQuestions.length).fill(null);
+
+            startButton.addEventListener('click', () => {
+                startScreen.classList.add('hidden');
+                quizScreen.classList.remove('hidden');
+                renderQuestion(0);
+            });
+
+            function renderQuestion(index) {
+                currentIndex = index;
+                const item = shuffledQuestions[index];
+                const total = shuffledQuestions.length;
+                const percent = Math.round(((index + 1) / total) * 100);
+
+                questionNumberText.textContent = `Pertanyaan ${index + 1} dari ${total}`;
+                progressPercentText.textContent = `${percent}% selesai`;
+                progressFill.style.width = `${percent}%`;
+                questionText.textContent = item.q;
+
+                optionsContainer.innerHTML = '';
+                item.options.forEach((opt, idx) => {
+                    const selected = answers[index] === opt.type;
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'option' + (selected ? ' is-selected' : '');
+                    btn.setAttribute('role', 'listitem');
+                    btn.innerHTML = `
+        <span class="option-badge">${String.fromCharCode(65 + idx)}</span>
+        <span class="option-text">${opt.text}</span>
+      `;
+                    btn.addEventListener('click', () => selectOption(opt.type));
+                    optionsContainer.appendChild(btn);
+                });
+
+                prevButton.classList.toggle('hidden', index === 0);
+                quizScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            function selectOption(type) {
+                answers[currentIndex] = type;
+                if (currentIndex < shuffledQuestions.length - 1) {
+                    setTimeout(() => renderQuestion(currentIndex + 1), 180);
+                } else {
+                    setTimeout(showResults, 180);
+                }
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) renderQuestion(currentIndex - 1);
+            });
+
+            function showResults() {
+                const total = shuffledQuestions.length;
+                const jrsCount = answers.filter(a => a === 'JRS').length;
+                const kcCount = answers.filter(a => a === 'KC').length;
+                const jrsPercent = Math.round((jrsCount / total) * 100);
+                const kcPercent = Math.round((kcCount / total) * 100);
+
+                quizScreen.classList.add('hidden');
+                resultScreen.classList.remove('hidden');
+
+                aScoreText.textContent = `${jrsPercent}% (${jrsCount}/${total})`;
+                bScoreText.textContent = `${kcPercent}% (${kcCount}/${total})`;
+                requestAnimationFrame(() => {
+                    aScoreFill.style.width = `${jrsPercent}%`;
+                    bScoreFill.style.width = `${kcPercent}%`;
+                });
+
+                const winnerType = jrsCount >= kcCount ? 'JRS' : 'KC';
+                const meta = TRACK_META[winnerType];
+
+                winnerCard.className = `winner-card ${meta.cls}`;
+                winnerCard.innerHTML = `
+      <div class="winner-head">
+        <div class="winner-icon">${meta.icon}</div>
+        <div>
+          <span class="winner-label">Rekomendasi utama</span>
+          <h3 class="winner-name">${meta.name}</h3>
+        </div>
+      </div>
+      <p class="winner-desc">${meta.desc}</p>
+      <div class="winner-steps">
+        <div class="winner-steps-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke-linecap="round"/></svg>
+          Langkah rekomendasi selanjutnya
+        </div>
+        <ul>${meta.steps.map(s => `<li>${s}</li>`).join('')}</ul>
+      </div>
+    `;
+
+                resultScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            restartButton.addEventListener('click', () => {
+                currentIndex = 0;
+                answers = new Array(shuffledQuestions.length).fill(null);
+                shuffledQuestions.forEach(item => { item.options = shuffle(item.options); });
+                resultScreen.classList.add('hidden');
+                startScreen.classList.remove('hidden');
+                startScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        })();
+    </script>
+</body>
+
+</html>
